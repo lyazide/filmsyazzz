@@ -15,6 +15,22 @@
     border-radius: 5px;
   }
 
+  .customlist {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0; /* Remove default padding */
+  }
+  
+  .customlist li {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Optional: add some space between list items */
+  }
+  
+  .customlist li img {
+    margin-right: 10px; /* Space between the image and the text */
+  }
+  
+  
 .movie {
   border: 1px solid #433d3d;
   background-color: #b0a6a6; 

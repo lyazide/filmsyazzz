@@ -36,11 +36,18 @@ const MovieDetail = () => {
       <p>Release Date: {movie.release_date}</p>
       <p>Average Rating: {movie.vote_average}</p>
       <h2>Main Cast</h2>
-      <ul>
+
+      <ul className={styles.customlist}>
         {cast.map(actor => (
-          <li key={actor.id}>{actor.name} as {actor.character}</li>
+            <li key={actor.id}>
+            <img src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} alt={actor.name} style={{ width: '50px', height: 'auto' }}/>
+            {actor.name} as {actor.character}
+            </li>
+            
+   
         ))}
       </ul>
+
       <button className={styles.button} onClick={() => addToWishlist(movie)}>Add to Wishlist</button>
       <h2>Similar Movies</h2>
       <div className={styles.similarMovies}>
