@@ -28,11 +28,11 @@ const MovieList = () => {
       <div className={styles.topbar}>
         <div className={styles.logo}>YaazzzMovie</div>
         <div className={styles.menu}>
-        <button onClick={() => setCategory('now_playing')}>Now Playing</button>
-        <button onClick={() => setCategory('popular')}>Popular</button>
-        <button onClick={() => setCategory('top_rated')}>Top Rated</button>
-        <button onClick={() => setCategory('upcoming')}>Upcoming</button>
-        <Link to={"/wishlist"}>Wish List</Link>
+        <button className={styles.button} onClick={() => setCategory('now_playing')}>Now Playing</button>
+        <button className={styles.button} onClick={() => setCategory('popular')}>Popular</button>
+        <button className={styles.button} onClick={() => setCategory('top_rated')}>Top Rated</button>
+        <button className={styles.button} onClick={() => setCategory('upcoming')}>Upcoming</button>
+        <Link to="/wishlist"> <button className={styles.button}>Wish List</button> </Link>
         </div>
         <input className={styles.searchbar}
           type="text"
@@ -40,7 +40,7 @@ const MovieList = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search for a movie..."
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className={styles.button} onClick={handleSearch}>Search</button>
       </div>
       <div className={styles.grid}>
         {movies.map(movie => (
@@ -48,7 +48,7 @@ const MovieList = () => {
               <h3>{movie.title}</h3>
               <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
               <p>Average Rating: {movie.vote_average}</p>
-              <Link to={`/movie/${movie.id}`}>See Details</Link>
+              <Link to={`/movie/${movie.id}`}> <button className={styles.button}>See Details</button> </Link>
             </div>
         ))}
       </div>

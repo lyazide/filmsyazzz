@@ -38,7 +38,7 @@ const MovieDetail = () => {
           <li key={actor.id}>{actor.name} as {actor.character}</li>
         ))}
       </ul>
-      <button onClick={() => addToWishlist(movie)}>Add to Wishlist</button>
+      <button className={styles.button} onClick={() => addToWishlist(movie)}>Add to Wishlist</button>
       <h2>Similar Movies</h2>
       <div className={styles.similarMovies}>
         {similarMovies.map(similarMovie => (

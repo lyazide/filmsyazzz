@@ -6,19 +6,19 @@ const Wishlist = () => {
   const { wishlist, removeFromWishlist } = useWishlist();
   
   return (
+    <div>
+    <h1>Wishlist</h1>
     <div className={styles.grid}>
-      <h1>Wishlist</h1>
       {wishlist.map(movie => (
         <div key={movie.id} className={styles.jacket}>
           <h3>{movie.title}</h3>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
           <p>Average Rating: {movie.vote_average}</p>
-          <ul>
-          <Link to={`/movie/${movie.id}`}>See Details</Link>
-          </ul>
-          <button onClick={() => removeFromWishlist(movie.id)}>Remove</button>
+          <Link to={`/movie/${movie.id}`}> <button className={styles.button}>See Details</button> </Link>
+          <button className={styles.button} onClick={() => removeFromWishlist(movie.id)}>Remove</button>
         </div>
       ))}
+    </div>
     </div>
   );
 };
