@@ -64,7 +64,7 @@ transform 0.3s;
 
 .button:hover { 
   background-color: #d40813; 
-  color: #0a6a6; 
+  color: #dbe7e7; 
   /*border-color: #d40813; */
   transform: scale(1.05); 
 }

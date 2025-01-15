@@ -30,10 +30,11 @@ font-size: 16px;
 transition: background-color 0.3s, 
 transform 0.3s; }
 
-.button:hover { background-color: #d40813; /* Slightly darker red on hover */ 
-  color: #0a6a6; /* Change font color to a contrasting yellow */ 
-  border-color: #d40813; /* Change border color to match the font color */ 
-  transform: scale(1.05); /* Slightly enlarge the button on hover */ 
+.button:hover { 
+  background-color: #d40813; 
+  color: #dbe7e7; 
+  /*border-color: #d40813; */
+  transform: scale(1.05); 
 }
 
 .grid { 
