@@ -7,6 +7,7 @@ const MovieList = () => {
   const [category, setCategory] = useState('popular');
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
   useEffect(() => {
     fetchMovies(category);
@@ -36,9 +37,11 @@ const MovieList = () => {
 
   const handleNextPage = () => { 
     setCurrentPage(prevPage => prevPage + 1); 
+    scrollToTop();
     }; 
   const handlePreviousPage = () => { 
     setCurrentPage(prevPage => Math.max(prevPage - 1, 1)); 
+    scrollToTop();
     };
 
   return (
