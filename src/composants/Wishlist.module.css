@@ -52,11 +52,7 @@ margin: 0;
 flex-direction: column;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minmax value as needed */
-  gap: 20px;
-}
+
 
 .grid .jacket {
   width: 100%;
