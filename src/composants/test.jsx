@@ -13,7 +13,7 @@ const MovieList = () => {
 
   useEffect(() => {
     if (searchTerm) {
-      fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=fc5cd7d2454789c3e684030e09f742bb`)
+      fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=${process.env.REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(data => setMovies(data.results));
     } else {
@@ -22,13 +22,7 @@ const MovieList = () => {
   }, [searchTerm]);
 
   const fetchMovies = (category) => {
-    fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=fc5cd7d2454789c3e684030e09f742bb`)
-      .then(response => response.json())
-      .then(data => setMovies(data.results));
-  };
-
-  const handleSearch = () => {
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=fc5cd7d2454789c3e684030e09f742bb`)
+    fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=${process.env.REACT_APP_API_KEY}`)
       .then(response => response.json())
       .then(data => setMovies(data.results));
   };
@@ -38,11 +32,11 @@ const MovieList = () => {
       <div className={styles.topbar}>
         <div className={styles.terminal}>YaazzzMovie</div>
         <div className={styles.menu}>
-        <button className={styles.button} onClick={() => setCategory('now_playing')}>Now Playing</button>
-        <button className={styles.button} onClick={() => setCategory('popular')}>Popular</button>
-        <button className={styles.button} onClick={() => setCategory('top_rated')}>Top Rated</button>
-        <button className={styles.button} onClick={() => setCategory('upcoming')}>Upcoming</button>
-        <Link to="/wishlist"> <button className={styles.button}>Wish List</button> </Link>
+          <button className={styles.button} onClick={() => setCategory('now_playing')}>Now Playing</button>
+          <button className={styles.button} onClick={() => setCategory('popular')}>Popular</button>
+          <button className={styles.button} onClick={() => setCategory('top_rated')}>Top Rated</button>
+          <button className={styles.button} onClick={() => setCategory('upcoming')}>Upcoming</button>
+          <Link to="/wishlist"> <button className={styles.button}>Wish List</button> </Link>
         </div>
         <input className={styles.searchbar}
           type="text"
@@ -50,7 +44,6 @@ const MovieList = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search for a movie..."
         />
-        <button className={styles.button} onClick={handleSearch}>Search</button>
       </div>
       <div className={styles.grid}>
         {movies.map(movie => (
