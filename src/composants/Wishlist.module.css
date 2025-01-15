@@ -9,14 +9,14 @@
 
 
 
-.movie {
-  border: 1px solid #433d3d;
-  background-color: #b0a6a6; 
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  font-family: 'Roboto', sans-serif;
-}
+  .movie {
+    border: 1px solid #433d3d;
+    background-color: #6f6464; 
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+  }
 
 /* Button Styles */ 
 .button { 
@@ -50,6 +50,17 @@ height: 10vh;
 background-color: #292525; 
 margin: 0; 
 flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust the minmax value as needed */
+  gap: 20px;
+}
+
+.grid .jacket {
+  width: 100%;
+  height: 500px; /* Adjust the height as needed */
 }
 
 .jacket {

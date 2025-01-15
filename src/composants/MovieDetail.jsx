@@ -44,14 +44,17 @@ const MovieDetail = () => {
       <button className={styles.button} onClick={() => addToWishlist(movie)}>Add to Wishlist</button>
       <h2>Similar Movies</h2>
       <div className={styles.similarMovies}>
+      <div className={styles.grid}>
         {similarMovies.map(similarMovie => (
           <div className={styles.jacket} key={similarMovie.id}>
             <h3>{similarMovie.title}</h3>
             <Link to={`/movie/${similarMovie.id}`} onClick={scrollToTop}>
             <img src={`https://image.tmdb.org/t/p/w500/${similarMovie.poster_path}`} alt={similarMovie.title} />
             </Link>
-          </div>
+            </div>
+          
         ))}
+        </div>
       </div>
     </div>
   );

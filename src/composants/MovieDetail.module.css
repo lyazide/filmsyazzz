@@ -24,6 +24,15 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.similarMovies{
+  border: 1px solid #433d3d;
+  background-color: #b0a6a6; 
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
 /* Button Styles */ 
 .button { 
 background-color: #0f0f0f;
