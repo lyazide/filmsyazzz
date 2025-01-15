@@ -24,7 +24,7 @@ const MovieList = () => {
   };
 
   return (
-    <div>
+    <div className={styles.movie}>
       <div className={styles.topbar}>
         <div className={styles.logo}>YaazzzMovie</div>
         <div className={styles.menu}>
