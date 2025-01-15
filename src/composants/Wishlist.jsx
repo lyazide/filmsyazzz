@@ -2,10 +2,8 @@ import { useWishlist } from '../WishListContext';
 import styles from './Wishlist.module.css';
 import { Link } from 'react-router';
 
-
 const Wishlist = () => {
   const { wishlist, removeFromWishlist } = useWishlist();
- // const navigate = useNavigate();
   
   return (
     <div className={styles.grid}>

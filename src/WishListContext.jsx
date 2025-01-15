@@ -13,9 +13,10 @@ export const WishlistProvider = ({ children }) => {
   }, [wishlist]);
 
   const addToWishlist = (movie) => {
-    setWishlist((prev) => {
-      const updatedWishlist = [...prev, movie];
-      return updatedWishlist;
+    setWishlist((prevWishlist) => {
+      if (prevWishlist.some(item => item.id === movie.id)) { 
+        return prevWishlist; 
+      } return [...prevWishlist, movie];
     });
   };
 

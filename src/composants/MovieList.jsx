@@ -6,7 +6,6 @@ const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState('popular');
   const [searchTerm, setSearchTerm] = useState('');
-  //const navigate = useNavigate();
 
   useEffect(() => {
     fetchMovies(category);
