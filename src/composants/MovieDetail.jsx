@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useWishlist } from '../WishListContext';
 import styles from './MovieDetail.module.css';
+import { Link } from 'react-router';
 
 //const apiKey = process.env.API_KEY;
 
@@ -11,6 +12,8 @@ const MovieDetail = () => {
   const [cast, setCast] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
   const { addToWishlist } = useWishlist();
+
+  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=fc5cd7d2454789c3e684030e09f742bb`)
@@ -44,7 +47,9 @@ const MovieDetail = () => {
         {similarMovies.map(similarMovie => (
           <div className={styles.jacket} key={similarMovie.id}>
             <h3>{similarMovie.title}</h3>
+            <Link to={`/movie/${similarMovie.id}`} onClick={scrollToTop}>
             <img src={`https://image.tmdb.org/t/p/w500/${similarMovie.poster_path}`} alt={similarMovie.title} />
+            </Link>
           </div>
         ))}
       </div>
