@@ -3,11 +3,12 @@ import { Link } from 'react-router';
 import styles from './MovieList.module.css';
 
 const MovieList = () => {
-  const [movies, setMovies] = useState([]);
-  const [category, setCategory] = useState('popular');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+const [movies, setMovies] = useState([]);
+const [category, setCategory] = useState('popular');
+const [searchTerm, setSearchTerm] = useState('');
+const [currentPage, setCurrentPage] = useState(1);
+const scrollToTop = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
 
   useEffect(() => {
     fetchMovies(category);
@@ -72,7 +73,9 @@ const MovieList = () => {
         {movies.map(movie => (
             <div key={movie.id} className={styles.jacket}>
               <h3>{movie.title}</h3>
+              <Link to={`/movie/${movie.id}`}>
               <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+              </Link>
               <p>Average Rating: {movie.vote_average}</p>
               <Link to={`/movie/${movie.id}`}> <button className={styles.button}>See Details</button> </Link>
             </div>
