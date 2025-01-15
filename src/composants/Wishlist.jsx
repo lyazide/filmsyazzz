@@ -6,8 +6,10 @@ const Wishlist = () => {
   const { wishlist, removeFromWishlist } = useWishlist();
   
   return (
-    <div>
+    <div className={styles.movie}>
+      <div className={styles.terminal}>
     <h1>Wishlist</h1>
+    </div>
     <div className={styles.grid}>
       {wishlist.map(movie => (
         <div key={movie.id} className={styles.jacket}>

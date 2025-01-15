@@ -122,3 +122,30 @@ border-radius: 4px;
 .content {
 padding: 20px;
 }
+
+/* Terminal Animation */
+.terminal {
+  padding: 20px;
+  border: 2px solid #312e2e; /* Border color */
+  border-radius: 5px;
+  box-shadow: 0 0 10px #312e2e; /* Glow effect */
+  background-color: #000; /* Background color */
+}
+
+.text-animation {
+  display: inline-block;
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide the overflowing content */
+  border-right: 3px solid #312e2e; /* Cursor style */
+  animation: typing 3s steps(12) 1s 1 normal both, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #312e2e; }
+}

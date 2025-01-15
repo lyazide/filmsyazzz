@@ -2,7 +2,7 @@
 
 .movie {
     border: 1px solid #433d3d;
-    background-color: #b0a6a6; 
+    background-color: #6f6464; 
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -112,4 +112,31 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 
 .content {
   padding: 20px;
+}
+
+/* Terminal Animation */
+.terminal {
+  padding: 20px;
+  border: 2px solid #d40813; /* Border color */
+  border-radius: 5px;
+  box-shadow: 0 0 10px #d40813; /* Glow effect */
+  background-color: #000; /* Background color */
+}
+
+.text-animation {
+  display: inline-block;
+  white-space: nowrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide the overflowing content */
+  border-right: 3px solid #d40813; /* Cursor style */
+  animation: typing 3s steps(12) 1s 1 normal both, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #d40813; }
 }

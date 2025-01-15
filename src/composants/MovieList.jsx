@@ -26,7 +26,7 @@ const MovieList = () => {
   return (
     <div className={styles.movie}>
       <div className={styles.topbar}>
-        <div className={styles.logo}>YaazzzMovie</div>
+        <div className={styles.terminal}>YaazzzMovie</div>
         <div className={styles.menu}>
         <button className={styles.button} onClick={() => setCategory('now_playing')}>Now Playing</button>
         <button className={styles.button} onClick={() => setCategory('popular')}>Popular</button>
