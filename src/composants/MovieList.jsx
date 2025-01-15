@@ -6,32 +6,40 @@ const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState('popular');
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     fetchMovies(category);
-  }, [category]);
+  }, [category, currentPage]);
 
   useEffect(() => {
     if (searchTerm) {
-      fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=fc5cd7d2454789c3e684030e09f742bb`)
+      fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=fc5cd7d2454789c3e684030e09f742bb&page=${currentPage}`)
         .then(response => response.json())
         .then(data => setMovies(data.results));
     } else {
-      fetchMovies(category);
+      fetchMovies(category, currentPage);
     }
-  }, [searchTerm]);
+  }, [searchTerm, category, currentPage]);
 
   const fetchMovies = (category) => {
-    fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=fc5cd7d2454789c3e684030e09f742bb`)
+    fetch(`https://api.themoviedb.org/3/movie/${category}?api_key=fc5cd7d2454789c3e684030e09f742bb&page=${currentPage}`)
       .then(response => response.json())
       .then(data => setMovies(data.results));
   };
 
   const handleSearch = () => {
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=fc5cd7d2454789c3e684030e09f742bb`)
+    fetch(`https://api.themoviedb.org/3/search/movie?query=${searchTerm}&api_key=fc5cd7d2454789c3e684030e09f742bb&page=${currentPage}`)
       .then(response => response.json())
       .then(data => setMovies(data.results));
   };
+
+  const handleNextPage = () => { 
+    setCurrentPage(prevPage => prevPage + 1); 
+    }; 
+  const handlePreviousPage = () => { 
+    setCurrentPage(prevPage => Math.max(prevPage - 1, 1)); 
+    };
 
   return (
     <div className={styles.movie}>
@@ -51,7 +59,12 @@ const MovieList = () => {
           placeholder="Search for a movie..."
         />
         <button className={styles.button} onClick={handleSearch}>Search</button>
+
       </div>
+      <div className={styles.pagination}> 
+          <button className={styles.button} onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button> 
+          <span>Page {currentPage}</span> <button className={styles.button} onClick={handleNextPage}>Next</button> 
+          </div>
       <div className={styles.grid}>
         {movies.map(movie => (
             <div key={movie.id} className={styles.jacket}>
@@ -61,7 +74,12 @@ const MovieList = () => {
               <Link to={`/movie/${movie.id}`}> <button className={styles.button}>See Details</button> </Link>
             </div>
         ))}
+
       </div>
+      <div className={styles.pagination}> 
+          <button className={styles.button} onClick={handlePreviousPage} disabled={currentPage === 1}>Previous</button> 
+          <span>Page {currentPage}</span> <button className={styles.button} onClick={handleNextPage}>Next</button> 
+          </div>
     </div>
   );
 };

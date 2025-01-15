@@ -9,6 +9,20 @@
     font-family: 'Roboto', sans-serif;
   }
 
+  .pagination {
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px;
+    font-size: 0.8em; /* Smaller size */
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 0.8em; /* Smaller size */
+  }
+  
 /* Button Styles */ 
 .button { 
 background-color: #0f0f0f;
